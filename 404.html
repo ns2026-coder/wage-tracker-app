@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wage Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Invite links (/join/<code> or /staff/<code>) have no file on a static host.
+  // Send the visitor to the app with the invite kept, so it can fill it in.
+  (function () {
+    var p = location.pathname;
+    var m = p.match(/^(.*?\/)(join|staff)\/(.+)$/);
+    if (m) { location.replace(m[1] + '?invite=' + encodeURIComponent(m[2] + '/' + m[3])); return; }
+    var gh = location.hostname.endsWith('github.io') ? '/' + (p.split('/')[1] || '') + '/' : '/';
+    location.replace(gh);
+  })();
+</script>
+</head>
+<body style="background:#0A0A0B;color:#F2F2F0;font-family:system-ui,sans-serif;padding:24px">
+<p>Opening Wage Tracker…</p>
+</body>
+</html>
